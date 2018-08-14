@@ -15,6 +15,6 @@
 
         public bool IsAvailable { get; set; }
 
-        public DateTime PublisOn { get; set; }
+        public DateTime PublishOn { get; set; }
     }
 }
