@@ -4,9 +4,10 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using Common.Models;
+    using Helpers;
     using Newtonsoft.Json;
     using Plugin.Connectivity;
-    using Sales.Common.Models;
 
     public class ApiService
     {
@@ -17,7 +18,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please turn on your internet settings",
+                    Message =Languages.TurnOnInternet,
                 };
             }
 
@@ -27,7 +28,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "No internet connection",
+                    Message = Languages.NoInternet,
                 };
             }
 
