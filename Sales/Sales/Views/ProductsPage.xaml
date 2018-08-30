@@ -5,6 +5,9 @@
              x:Class="Sales.Views.ProductsPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate Products}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_playlist_add" Command="{Binding AddProductCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Products}"
@@ -20,22 +23,26 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image
                                     Grid.Column="0"
                                     Source="{Binding ImageFullPath}"
                                     WidthRequest="100">
-                                    
                                 </Image>
-                                <Label
-                                    FontAttributes="Bold"
-                                    Grid.Column="1"
-                                    Text="{Binding Description}"
-                                    VerticalOptions="Center">
-                                </Label>
+                                <StackLayout
+                                    Grid.Column="1">
+                                        <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="Center">
+                                        </Label>
+                                    <Label
+                                        Text="{Binding Remarks}">
+                                    </Label>
+                                </StackLayout>
                                 <Label
                                     Grid.Column="2"
                                     HorizontalOptions="End"
