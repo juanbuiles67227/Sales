@@ -6,6 +6,7 @@
     using Common.Models;
     using Sercives;
     using Xamarin.Forms;
+    using System.Linq;
 
     public class AddProductViewModel : BaseViewModel
     {
@@ -122,6 +123,10 @@
                     Languages.Accept);
                 return;
             }
+
+            var newProduct = (Product)response.Result;
+            var viewModel = ProductsViewModel.GetInstance();
+            viewModel.Products.Add(newProduct);
 
             this.IsRunning = false;
             this.IsEnabled = true;
